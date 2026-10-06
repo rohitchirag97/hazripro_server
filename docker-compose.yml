@@ -1,0 +1,27 @@
+services:
+  database:
+    image: postgres:17-alpine
+    container_name: hazripro-database
+    environment:
+      POSTGRES_USER: hazripro
+      POSTGRES_PASSWORD: hazripro
+      POSTGRES_DB: hazripro
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - hazri_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: hazripro-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    networks:
+      - hazri_network
+
+networks:
+  hazri_network:
