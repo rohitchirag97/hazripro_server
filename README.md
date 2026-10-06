@@ -21,4 +21,4 @@ workers, with:
 bun run start
 ```
 
-Open http://localhost:3000
+Open http://localhost:8000
